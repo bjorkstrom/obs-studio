@@ -72,6 +72,7 @@ bool opt_start_replaybuffer = false;
 bool opt_minimize_tray = false;
 bool opt_allow_opengl = false;
 bool opt_always_on_top = false;
+bool opt_always_exit = false;
 string opt_starting_collection;
 string opt_starting_profile;
 string opt_starting_scene;
@@ -1864,6 +1865,9 @@ int main(int argc, char *argv[])
 		} else if (arg_is(argv[i], "--multi", "-m")) {
 			multi = true;
 
+		} else if (arg_is(argv[i], "--always-exit", nullptr)) {
+			opt_always_exit = true;
+
 		} else if (arg_is(argv[i], "--verbose", nullptr)) {
 			log_verbose = true;
 
@@ -1914,6 +1918,7 @@ int main(int argc, char *argv[])
 			"--minimize-to-tray: Minimize to system tray.\n" <<
 			"--portable, -p: Use portable mode.\n" <<
 			"--multi, -m: Don't warn when launching multiple instances.\n\n" <<
+			"--always-exit: Don't warn if OBS is active when exiting.\n\n" <<
 			"--verbose: Make log more verbose.\n" <<
 			"--always-on-top: Start in 'always on top' mode.\n\n" <<
 			"--unfiltered_log: Make log unfiltered.\n\n" <<
