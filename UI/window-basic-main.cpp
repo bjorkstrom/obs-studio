@@ -3155,7 +3155,7 @@ void OBSBasic::closeEvent(QCloseEvent *event)
 			"BasicWindow", "DockState",
 			saveState().toBase64().constData());
 
-	if (outputHandler && outputHandler->Active()) {
+	if (outputHandler && outputHandler->Active() && !opt_always_exit) {
 		SetShowing(true);
 
 		QMessageBox::StandardButton button = OBSMessageBox::question(
